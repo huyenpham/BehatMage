@@ -102,6 +102,9 @@ class Session
             }
         }
 
+        // regenerate session id to avoid same session being used by multiple scenarios
+        session_regenerate_id();
+
         /** @var $session \Mage_Customer_Model_Session */
         $session = \Mage::getSingleton('customer/session');
 
