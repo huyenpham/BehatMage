@@ -81,7 +81,9 @@ class FixtureFactory
     public function clean()
     {
         foreach ($this->getRegistry() as $fixture) {
-            $fixture->delete();
+          \Mage::app()->setCurrentStore(\Mage_Core_Model_App::ADMIN_STORE_ID);
+          $fixture->delete();
+          \Mage::app()->setCurrentStore(\Mage_Core_Model_App::DISTRO_STORE_ID);
         }
         $this->registry = array();
     }
